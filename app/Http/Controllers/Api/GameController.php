@@ -10,7 +10,6 @@ use App\Http\Resources\Api\Game\GetResource;
 use App\Http\Resources\Api\Game\PostResource;
 use App\Models\Category;
 use App\Models\Game;
-use App\Services\Api\ActionDefaultPost;
 use Illuminate\Http\JsonResponse;
 use App\Services\Api\Game\GameService;
 
@@ -41,10 +40,10 @@ class GameController extends Controller
 
     /**
      * @param  StoreRequest  $request
-     * @param  ActionDefaultPost  $service
+     * @param  GameService  $service
      * @return JsonResponse
      */
-    public function store(StoreRequest $request, ActionDefaultPost $service)
+    public function store(StoreRequest $request, GameService $service):JsonResponse
     {
         $data = $request->validated();
 
@@ -76,10 +75,10 @@ class GameController extends Controller
     /**
      * @param  PatchRequest  $request
      * @param  string  $id
-     * @param  ActionDefaultPost  $service
+     * @param  GameService  $service
      * @return JsonResponse
      */
-    public function update(PatchRequest $request, string $id, ActionDefaultPost $service):JsonResponse
+    public function update(PatchRequest $request, string $id, GameService $service):JsonResponse
     {
         $data = $request->validated();
 
