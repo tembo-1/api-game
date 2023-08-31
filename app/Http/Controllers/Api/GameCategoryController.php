@@ -8,7 +8,7 @@ use App\Http\Requests\Api\GameCategory\StoreRequest;
 use App\Http\Resources\Api\GameCategory\GameCategoryCollection;
 use App\Http\Resources\Api\GameCategory\PostResource;
 use App\Models\GameCategory;
-use App\Services\Api\Game\GameService;
+use App\Services\Api\ActionDefaultPost;
 use Illuminate\Http\JsonResponse;
 
 class GameCategoryController extends Controller
@@ -23,10 +23,10 @@ class GameCategoryController extends Controller
 
     /**
      * @param  StoreRequest  $request
-     * @param  GameService  $service
+     * @param  ActionDefaultPost  $service
      * @return JsonResponse
      */
-    public function store(StoreRequest $request, GameService $service):JsonResponse
+    public function store(StoreRequest $request, ActionDefaultPost $service):JsonResponse
     {
         $data = $request->validated();
 
@@ -42,10 +42,10 @@ class GameCategoryController extends Controller
     /**
      * @param  PatchRequest  $request
      * @param  string  $id
-     * @param  GameService  $service
+     * @param  ActionDefaultPost  $service
      * @return JsonResponse
      */
-    public function update(PatchRequest $request, string $id, GameService $service):JsonResponse
+    public function update(PatchRequest $request, string $id, ActionDefaultPost $service):JsonResponse
     {
         $data = $request->validated();
 
